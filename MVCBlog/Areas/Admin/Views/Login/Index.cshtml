@@ -1,0 +1,105 @@
+﻿
+@{
+    Layout = null;
+}
+
+@model MVCBlog.Areas.Admin.Models.DTO.LoginModel
+
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="" />
+    @*<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>*@
+
+
+
+    <link href="~/Areas/Admin/Content/css/bootstrap.css" rel="stylesheet" />
+  
+    <link href="~/Areas/Admin/Content/css/style.css" rel="stylesheet" />
+
+
+    <script src="~/Scripts/jquery-2.1.1.min.js"></script>
+    <link href="~/Areas/Admin/Content/css/font-awesome.css" rel="stylesheet" />
+
+    <link href='//fonts.googleapis.com/css?family=Carrois+Gothic' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Work+Sans:400,500,600' rel='stylesheet' type='text/css'>
+
+    <style>
+        .field-validation-error {
+            color:indianred;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-page">
+        <div class="login-main">
+            <div class="login-head">
+                <h1 style="color:gray;">Login</h1>
+            </div>
+            <div class="login-block">
+
+                @using (Html.BeginForm("Index", "Login"))
+                {
+                    //  @Html.ValidationSummary(); // hepsini üste yazar.
+
+                    @Html.TextBoxFor(x => x.adm_Email, new { @class = "text", @placeholder = "Email" })
+                    @Html.ValidationMessageFor(x => x.adm_Email) // textbox un altına yazar.
+                
+                    @Html.PasswordFor(x => x.adm_Sifre, new { @class = "lock", @placeholder = "Şifre" })
+                    @Html.ValidationMessageFor(x => x.adm_Sifre) // textbox un altına yazar.
+
+                    //  @Html.ValidationSummary(); // hepsini alta yazar.
+
+                    <div class="forgot-top-grids">
+                        <div class="forgot-grid">
+                            <ul>
+                                <li>
+                                    <input type="checkbox" id="brand1" value="">
+                                    <label for="brand1"><span></span>Beni Hatırla</label>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="forgot">
+                            <a href="#">Şifreni mi unuttun?</a>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+
+                    <input type="submit" name="Sign In" value="Login">
+
+                    <h3>Üye Değil Misin?<a href="signup.html"> Şimdi Üye Ol</a></h3>
+                    <h2>Şunları da Kullanabilirsin</h2>
+                        <div class="login-icons">
+                            <ul>
+                                <li><a href="#" class="facebook"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#" class="twitter"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#" class="google"><i class="fa fa-google-plus"></i></a></li>
+                            </ul>
+                        </div>
+
+                        <h5><a href="index.html">AnaSayfa</a></h5>
+
+                }
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+    <div class="copyrights">
+     @*   <p>© 2016 Shoppy. All Rights Reserved | Design by  <a href="http://w3layouts.com/" target="_blank">W3layouts</a> </p>*@
+    </div>
+    <script src="~/Scripts/jquery.nicescroll.js"></script>
+    <script src="~/Scripts/scripts.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+</body>
+</html>
+
+
+
+
