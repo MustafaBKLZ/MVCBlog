@@ -9,7 +9,10 @@ namespace MVCBlog.Areas.Admin.Models.DTO
     public class KategoriVM : BaseVM
     {
         [Required(ErrorMessage ="Kategori Adı Boş Olamaz.")]
+        [Display(Name ="Kategori Adi")]
         public string kat_adi { get; set; }
+
+        [Display(Name = "Kategori Açıklaması")]
         public string kat_aciklama { get; set; }
     }
 } 
