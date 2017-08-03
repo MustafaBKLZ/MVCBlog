@@ -13,6 +13,22 @@ namespace MVCBlog.Areas.Admin.Controllers
         // GET: Admin/Kategori
         //yorum satırlarını silme
 
+
+        public ActionResult Index()
+        {
+            List<KategoriVM> model =
+                db.Kategoriler.Where(x => x.Aktif == true).OrderBy(x => x.KayitTarihi).Select(x => new KategoriVM()
+                {
+                    ID = x.ID,
+                    kat_adi = x.kat_Adi,
+                    kat_aciklama = x.kat_aciklama
+                }).ToList();
+
+            return View(model);
+
+        }
+
+
         public ActionResult KategoriEkle()
         {
             return View();
@@ -38,7 +54,7 @@ namespace MVCBlog.Areas.Admin.Controllers
                 return View();
                 //uyarılar gelecek
             }
-            
+
         }
 
 
