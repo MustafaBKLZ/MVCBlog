@@ -17,7 +17,6 @@ namespace MVCBlog.Areas.Admin.Controllers
         {
             return View();
         }
-
         [HttpPost]
         public ActionResult KategoriEkle(KategoriVM model)
         {
@@ -29,10 +28,13 @@ namespace MVCBlog.Areas.Admin.Controllers
                 kategori.Kaydeden = 1;
                 db.Kategoriler.Add(kategori);
                 db.SaveChanges();
+                ViewBag.IslemDurum = 1; // işlem durumuna göre mekranda öesaj göstermek için kullanıyoruz. Herhangi bir değişkene bağlı değil.
+                //yani int IslemDurum=0; gibi bir tanımlaması yok.
                 return View();
             }
             else
             {
+                ViewBag.IslemDurum = 0;
                 return View();
                 //uyarılar gelecek
             }

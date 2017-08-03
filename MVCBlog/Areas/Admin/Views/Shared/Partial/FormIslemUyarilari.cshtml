@@ -1,0 +1,14 @@
+﻿@using MVCBlog.Areas.Admin.Models.Types;
+
+<br />
+<div class="row">
+    @if (ViewBag.IslemDurum == 1)
+    {
+        <div class="@FormMessages.AddSuccesCss"><b>@FormMessages.AddSuccesTitle </b> @FormMessages.AddSucces</div>
+    }
+    else if (ViewBag.IslemDurum == 0)
+    {
+        <div class="@FormMessages.AddWarningCss"><b>@FormMessages.AddWarningTitle </b> @FormMessages.AddWarning</div>
+    }
+
+</div>

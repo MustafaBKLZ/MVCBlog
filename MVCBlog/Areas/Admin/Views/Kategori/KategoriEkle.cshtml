@@ -3,11 +3,13 @@
     ViewBag.Title = "KategoriEkle";
     Layout = "~/Areas/Admin/Views/Shared/AdminLayout.cshtml";
 }
+@using MVCBlog.Areas.Admin.Models.Types;
 @model MVCBlog.Areas.Admin.Models.DTO.KategoriVM
 
-<div class="row">
+<div class="">
 
     <!-- INLINE FORM ELELEMNTS -->
+    <!-- Yorum satırlarını silme -->
     <div class="row mt">
         <div class="col-lg-12">
 
@@ -20,7 +22,7 @@
                             <div class="row">
                                 <div class="col-md-2">
                                     @Html.LabelFor(x => x.kat_adi)
-
+                                    @*KategoriVM de verdiğimiz display attribute si burada görünüyor.*@
                                 </div>
                                 <div class="col-md-4">
                                     @Html.TextBoxFor(x => x.kat_adi, new { @class = "form-control", @placeholder = "Adı" })
@@ -31,15 +33,21 @@
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-md-2">
-                                    @Html.LabelFor(x => x.kat_aciklama)
-                                </div>
+                                    @Html.LabelFor(x => x.kat_aciklama)                                     
+                                    @*KategoriVM de verdiğimiz display attribute si burada görünüyor.*@
+                                </div>                                
                                 <div class="col-md-10">
-                                    @Html.TextBoxFor(x => x.kat_aciklama, new { @class = "form-control", @placeholder = "Açıklama" , @type="TextArea"})
+                                    @Html.TextBoxFor(x => x.kat_aciklama, new { @class = "form-control", @placeholder = "Açıklama", @type = "TextArea" })
                                     @Html.ValidationMessageFor(x => x.kat_aciklama)
                                 </div>
                             </div>
                         </div>
+                        <div class="row">
                             <button type="submit" class="btn btn-theme">Kaydet</button>
+                        </div>
+                        // tüm uyarı mesajlarını buraya atacağız
+                        // tek satır ile bu şekilde her yerde kullanabileceğiz.
+                        @Html.Partial("/Areas/Admin/Views/Shared/Partial/FormIslemUyarilari.cshtml")
                     }
                 </div><!-- /form-panel -->
             </div><!-- /col-lg-12 -->

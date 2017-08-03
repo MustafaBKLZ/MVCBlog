@@ -168,6 +168,7 @@
     <Content Include="Areas\Admin\Content\font-awesome\fonts\fontawesome-webfont.ttf" />
     <Content Include="Areas\Admin\Content\font-awesome\fonts\fontawesome-webfont.woff" />
     <Content Include="Areas\Admin\Content\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="Areas\Admin\Views\Shared\Partial\FormIslemUyarilari.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\Chart.js" />
@@ -201,6 +202,7 @@
     <Compile Include="Areas\Admin\Models\DTO\BaseVM.cs" />
     <Compile Include="Areas\Admin\Models\DTO\KategoriVM.cs" />
     <Compile Include="Areas\Admin\Models\DTO\LoginModel.cs" />
+    <Compile Include="Areas\Admin\Models\Types\FormMessages.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
