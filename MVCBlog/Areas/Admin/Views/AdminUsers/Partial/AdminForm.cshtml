@@ -1,0 +1,54 @@
+﻿
+
+
+@using MVCBlog.Areas.Admin.Models.Types;
+@model MVCBlog.Areas.Admin.Models.DTO.AdminUserVM
+
+
+@using (Html.BeginForm())
+{
+    <div class="form-group">
+        <div class="row">
+            <div class="col-md-2">
+                @Html.LabelFor(x => x.adm_AdiSoyadi)
+                @*AdminUserVM de verdiğimiz display attribute si burada görünüyor.*@
+            </div>
+            <div class="col-md-4">
+                @Html.TextBoxFor(x => x.adm_AdiSoyadi, new { @class = "form-control", @placeholder = "Adı" })
+                @Html.ValidationMessageFor(x => x.adm_AdiSoyadi)
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="row">
+            <div class="col-md-2">
+                @Html.LabelFor(x => x.adm_Email)
+                @*AdminUserVM de verdiğimiz display attribute si burada görünüyor.*@
+            </div>
+            <div class="col-md-10">
+                @Html.TextBoxFor(x => x.adm_Email, new { @class = "form-control", @placeholder = "Email", @type = "Email" })
+                @Html.ValidationMessageFor(x => x.adm_Email)
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="row">
+            <div class="col-md-2">
+                @Html.LabelFor(x => x.adm_Sifre)
+                @*AdminUserVM de verdiğimiz display attribute si burada görünüyor.*@
+            </div>
+            <div class="col-md-10">
+                @Html.TextBoxFor(x => x.adm_Sifre, new { @class = "form-control", @placeholder = "", @type = "Password" })
+                @Html.ValidationMessageFor(x => x.adm_Sifre)
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <button type="submit" class="btn btn-theme">Kaydet</button>
+    </div>
+}
+
+
+

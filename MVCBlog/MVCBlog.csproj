@@ -182,6 +182,10 @@
     <Content Include="Areas\Admin\Views\Kategori\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Kategori\KategoriGuncelle.cshtml" />
     <Content Include="Areas\Admin\Views\Kategori\Partial\CategoryForm.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminUsers\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminUsers\AdminEkle.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminUsers\Partial\AdminForm.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminUsers\AdminGuncelle.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\Chart.js" />
@@ -207,11 +211,13 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminUsersController.cs" />
     <Compile Include="Areas\Admin\Controllers\BaseController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\KategoriController.cs" />
     <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
     <Compile Include="Areas\Admin\Models\Attributes\LoginControl.cs" />
+    <Compile Include="Areas\Admin\Models\DTO\AdminUserVM.cs" />
     <Compile Include="Areas\Admin\Models\DTO\BaseVM.cs" />
     <Compile Include="Areas\Admin\Models\DTO\KategoriVM.cs" />
     <Compile Include="Areas\Admin\Models\DTO\LoginModel.cs" />

@@ -3,21 +3,21 @@
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/AdminLayout.cshtml";
 }
-@model List<MVCBlog.Areas.Admin.Models.DTO.KategoriVM>
+@model List<MVCBlog.Areas.Admin.Models.DTO.AdminUserVM>
 
 <!-- INLINE FORM ELELEMNTS -->
 <!-- Yorum satırlarını silme -->
 <div class="row mt">
     <div class="col-lg-12">
         <div class="content-panel">
-            <h4><i class="fa fa-angle-right"></i>Kategori Listesi</h4>
+            <h4><i class="fa fa-angle-right"></i>Yönetici Listesi</h4>
             <section id="unseen">
                 <table class="table table-bordered table-striped table-condensed">
                     <thead>
                         <tr>
                             <th class="numeric">ID</th>
                             <th>Adı</th>
-                            <th>Açıklama</th>
+                            <th>Email</th>
                             <th>Eklenme Tarihi</th>
                             <th>İşlemler</th>
                         </tr>
@@ -33,13 +33,15 @@
                                     //a_@item.ID amacı budur.
                                 *@
                                 <td>@item.ID</td>
-                                <td>@item.kat_adi</td>
-                                <td>@item.kat_aciklama</td>
+                                <td>@item.adm_AdiSoyadi</td>
+                                <td>@item.adm_Email</td>                                
                                 <td>@item.KayitTarihi</td>
                                 <td>
                                     <a class="btn btn-danger" style="cursor:pointer" title="Sil" onclick="Delete(@item.ID)"><span class="fa fa-times"></span> </a>
-                                    <a class="btn btn-success" style="cursor:pointer" title="Değiştir" href="/Admin/Kategori/KategoriGuncelle/@item.ID"><span class="fa fa-pencil-square-o"></span> </a>
-                                    <a class="btn btn-info" style="cursor:pointer" title="Değiştir" href="/Admin/Kategori/KategoriEkle"><span class="fa fa-plus"></span> </a>
+
+                                    <a class="btn btn-success" style="cursor:pointer" title="Değiştir" href="/Admin/AdminUsers/AdminGuncelle/@item.ID"><span class="fa fa-pencil-square-o"></span> </a>
+
+                                    <a class="btn btn-info" style="cursor:pointer" title="Değiştir" href="/Admin/AdminUsers/AdminEkle"><span class="fa fa-plus"></span> </a>
                                 </td>
                             </tr>
                         }
@@ -54,7 +56,7 @@
     function Delete(id) { // parametre olarak id alıyor
         $.ajax(
             {
-                url: "/Admin/Kategori/KategoriSil/" + id, // kategoriControllerdeki dilme metoduna erişiyor
+                url: "/Admin/AdminUsers/AdminSil/" + id, // kategoriControllerdeki dilme metoduna erişiyor
                 data: id, // data olarak id bilgisi gönderiliyor
                 type: "POST", // işlem tipi
                 success: function (result) { // işlem başarılı ise olacakları yazıyoruz.

@@ -8,20 +8,18 @@ using System.Web.Mvc;
 
 namespace MVCBlog.Areas.Admin.Controllers
 {
-    public class KategoriController : BaseController
+    public class AdminUsersController : BaseController
     {
-        // GET: Admin/Kategori
-        //yorum satırlarını silme
-
-
+        // GET: Admin/AdminUsers
         public ActionResult Index()
         {
-            List<KategoriVM> model =
-                db.Kategoriler.Where(x => x.Aktif == true).OrderBy(x => x.KayitTarihi).Select(x => new KategoriVM()
+            List<AdminUserVM> model =
+                db.AdminUsers.Where(x => x.Aktif == true).OrderBy(x => x.KayitTarihi).Select(x => new AdminUserVM()
                 {
                     ID = x.ID,
-                    kat_adi = x.kat_Adi,
-                    kat_aciklama = x.kat_aciklama,
+                    adm_Email = x.adm_Email,
+                    adm_Sifre = x.adm_Sifre,
+                    adm_AdiSoyadi = x.adm_AdiSoyadi,
                     Aktif = x.Aktif,
                     KayitTarihi = x.KayitTarihi
                 }).ToList();
@@ -29,21 +27,21 @@ namespace MVCBlog.Areas.Admin.Controllers
             return View(model);
         }
 
-
-        public ActionResult KategoriEkle()
+        public ActionResult AdminEkle()
         {
             return View();
         }
         [HttpPost]
-        public ActionResult KategoriEkle(KategoriVM model)
+        public ActionResult AdminEkle(AdminUserVM model)
         {
             if (ModelState.IsValid)
             {
-                Kategori kategori = new Kategori();
-                kategori.kat_Adi = model.kat_adi;
-                kategori.kat_aciklama = model.kat_aciklama;
-                kategori.Kaydeden = 1;
-                db.Kategoriler.Add(kategori);
+                AdminUser Admin = new AdminUser();
+                Admin.adm_AdiSoyadi = model.adm_AdiSoyadi;
+                Admin.adm_Email = model.adm_Email;
+                Admin.adm_Sifre = model.adm_Sifre;
+                Admin.Kaydeden = 1;
+                db.AdminUsers.Add(Admin);
                 db.SaveChanges();
                 ViewBag.IslemDurum = 1; // işlem durumuna göre mekranda öesaj göstermek için kullanıyoruz. Herhangi bir değişkene bağlı değil.
                 //yani int IslemDurum=0; gibi bir tanımlaması yok.
@@ -60,40 +58,40 @@ namespace MVCBlog.Areas.Admin.Controllers
 
         //kategori silme işlemi için
         //javascript aracılı ile yapıyoruz.
-        public JsonResult KategoriSil(int id)
+        public JsonResult AdminSil(int id)
         {
-            Kategori kategori = db.Kategoriler.FirstOrDefault(x => x.ID == id);
-            kategori.Aktif = false;
-            kategori.Degistirme_Tarihi = DateTime.Now;
-            kategori.Degistiren = 1;
+            AdminUser Admin = db.AdminUsers.FirstOrDefault(x => x.ID == id);
+            Admin.Aktif = false;
+            Admin.Degistirme_Tarihi = DateTime.Now;
+            Admin.Degistiren = 1;
             db.SaveChanges();
 
             return Json("");
         }
 
 
-
-
-        public ActionResult KategoriGuncelle(int id)
+        public ActionResult AdminGuncelle(int id)
         {
             //önce güncellenecek kaydı bulup ekrana verileri yazıyoruz
-            Kategori kategori = db.Kategoriler.FirstOrDefault(x => x.ID == id);
-            KategoriVM model = new KategoriVM();
-            model.kat_adi = kategori.kat_Adi;
-            model.kat_aciklama = kategori.kat_aciklama;
+            AdminUser admin = db.AdminUsers.FirstOrDefault(x => x.ID == id);
+            AdminUserVM model = new AdminUserVM();
+            model.adm_AdiSoyadi = admin.adm_AdiSoyadi;
+            model.adm_Email = admin.adm_Email;
+            model.adm_Sifre = admin.adm_Sifre;
 
             return View(model);
         }
 
         [HttpPost]
-        public ActionResult KategoriGuncelle(KategoriVM model)
+        public ActionResult AdminGuncelle(AdminUserVM model)
         {
             //güncellenecek kategori alınır ve yeni verilerle güncellenir
             if (ModelState.IsValid)
             {
-                Kategori kategori = db.Kategoriler.FirstOrDefault(x => x.ID == model.ID);
-                kategori.kat_Adi = model.kat_adi;
-                kategori.kat_aciklama = model.kat_aciklama;
+                AdminUser admin = db.AdminUsers.FirstOrDefault(x => x.ID == model.ID);
+                admin.adm_AdiSoyadi = model.adm_AdiSoyadi;
+                admin.adm_Email = model.adm_Email;
+                admin.adm_Sifre = model.adm_Sifre;
                 db.SaveChanges();
                 ViewBag.IslemDurum = 1; // işlem durumuna göre mekranda öesaj göstermek için kullanıyoruz. Herhangi bir değişkene bağlı değil.
                 //yani int IslemDurum=0; gibi bir tanımlaması yok.
