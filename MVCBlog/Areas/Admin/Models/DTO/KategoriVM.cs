@@ -14,5 +14,9 @@ namespace MVCBlog.Areas.Admin.Models.DTO
 
         [Display(Name = "Kategori Açıklaması")]
         public string kat_aciklama { get; set; }
+
+        public DateTime KayitTarihi { get; set; }
+        public bool Aktif { get; set; }
+
     }
 } 

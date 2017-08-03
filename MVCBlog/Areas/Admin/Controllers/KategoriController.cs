@@ -21,7 +21,9 @@ namespace MVCBlog.Areas.Admin.Controllers
                 {
                     ID = x.ID,
                     kat_adi = x.kat_Adi,
-                    kat_aciklama = x.kat_aciklama
+                    kat_aciklama = x.kat_aciklama,
+                    Aktif = x.Aktif,
+                    KayitTarihi = x.KayitTarihi
                 }).ToList();
 
             return View(model);
@@ -57,7 +59,18 @@ namespace MVCBlog.Areas.Admin.Controllers
 
         }
 
+        //kategori silme işlemi için
+        //javascript aracılı ile yapıyoruz.
+        public JsonResult KategoriSil(int id)
+        {
+            Kategori kategori = db.Kategoriler.FirstOrDefault(x => x.ID == id);
+            kategori.Aktif = false;
+            kategori.Degistirme_Tarihi = DateTime.Now;
+            kategori.Degistiren = 1;
+            db.SaveChanges();
 
+            return Json("");
+        }
 
 
 

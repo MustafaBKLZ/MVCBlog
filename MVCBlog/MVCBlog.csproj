@@ -144,6 +144,10 @@
     <Content Include="App_Readme\Spring.Rest.txt" />
     <Content Include="App_Readme\Spring.Social.Core.txt" />
     <Content Include="Areas\Admin\Content\css\bootstrap.css" />
+    <Content Include="Areas\Admin\Content\images\gritter-light.png" />
+    <Content Include="Areas\Admin\Content\images\gritter-long.png" />
+    <Content Include="Areas\Admin\Content\images\gritter.png" />
+    <Content Include="Areas\Admin\Content\images\ie-spacer.gif" />
     <Content Include="Areas\Admin\Content\css\jquery.gritter.css" />
     <Content Include="Areas\Admin\Content\css\style-responsive.css" />
     <Content Include="Areas\Admin\Content\css\style.css" />
@@ -153,7 +157,12 @@
     <Content Include="Areas\Admin\Content\font-awesome\fonts\fontawesome-webfont.svg" />
     <Content Include="Areas\Admin\Content\images\checkbox-gray.png" />
     <Content Include="Areas\Admin\Content\images\login-bg.jpg" />
+    <Content Include="Areas\Admin\Content\images\mask.png" />
     <Content Include="Areas\Admin\Content\images\radio-gray.png" />
+    <Content Include="Areas\Admin\Content\images\ui-danro.jpg" />
+    <Content Include="Areas\Admin\Content\images\ui-divya.jpg" />
+    <Content Include="Areas\Admin\Content\images\ui-sam.jpg" />
+    <Content Include="Areas\Admin\Content\images\ui-sherman.jpg" />
     <Content Include="Areas\Admin\Content\images\ui-zac.jpg" />
     <Content Include="Areas\Admin\Content\images\zoom.png" />
     <Content Include="Content\bootstrap.css" />

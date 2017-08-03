@@ -8,34 +8,71 @@
 
 
 
+<!-- INLINE FORM ELELEMNTS -->
+<!-- Yorum satırlarını silme -->
+<div class="row mt">
 
-<section id="unseen">
-    <table class="table table-bordered table-striped table-condensed">
-        <thead>
-            <tr>
-                <th>Code</th>
-                <th>Company</th>
-                <th class="numeric">Price</th>
-                <th class="numeric">Change</th>
-                <th class="numeric">Change %</th>
-                <th class="numeric">Open</th>
-                <th class="numeric">High</th>
-                <th class="numeric">Low</th>
-                <th class="numeric">Volume</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>AAC</td>
-                <td>AUSTRALIAN AGRICULTURAL COMPANY LIMITED.</td>
-                <td class="numeric">$1.38</td>
-                <td class="numeric">-0.01</td>
-                <td class="numeric">-0.36%</td>
-                <td class="numeric">$1.39</td>
-                <td class="numeric">$1.39</td>
-                <td class="numeric">$1.38</td>
-                <td class="numeric">9,395</td>
-            </tr>
-        </tbody>
-    </table>
-</section>
+
+
+
+    <div class="col-lg-12">
+        <div class="content-panel">
+            <h4><i class="fa fa-angle-right"></i>Kategori Listesi</h4>
+
+            <section id="unseen">
+                <table class="table table-bordered table-striped table-condensed">
+                    <thead>
+                        <tr>
+                            <th class="numeric">ID</th>
+                            <th>Adı</th>
+                            <th>Açıklama</th>
+                            <th>Eklenme Tarihi</th>
+                            <th>Aktif</th>
+                            <th>İşlemler</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr id="a_@item.ID">
+                                @*
+                                    // sayfa kaynağından bu tabloya baktığında her satırın bir ıd si olduğunu göreceksin
+                                    // her ID tablodan çekilen ID dir. ve html olarak a_ID olarak basılıyor
+                                    //a_1 , a_2 şeklinde
+                                    //a_@item.ID amacı budur.
+                                *@
+                                <td>@item.ID</td>
+                                <td>@item.kat_adi</td>
+                                <td>@item.kat_aciklama</td>
+                                <td>@item.KayitTarihi</td>
+                                <td>@item.Aktif</td>
+                                <td>
+                                    <a class="btn btn-danger" style="cursor:pointer" title="Sil" onclick="Delete(@item.ID)"><span class="fa fa-times"></span> </a>
+
+                                    <a class="btn btn-success" style="cursor:pointer" title="Değiştir"><span class="fa fa-pencil-square-o"></span> </a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </section>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    //database ve html den silme metodu
+    function Delete(id) { // parametre olarak id alıyor
+        $.ajax(
+            {
+                url: "/Admin/Kategori/KategoriSil/" + id, // kategoriControllerdeki dilme metoduna erişiyor
+                data: id, // data olarak id bilgisi gönderiliyor
+                type: "POST", // işlem tipi                
+                success: function (result) { // işlem başarılı ise olacakları yazıyoruz.
+                    $("#a_" + id).fadeOut(); // DB den sildik ancak HTML olarakda silmek için ilgili satırı kaldırıyoruz.
+                }
+            }
+        )
+    }
+</script>
