@@ -26,6 +26,7 @@ namespace MVCBlog.Areas.Admin.Controllers
                 Kategori kategori = new Kategori();
                 kategori.kat_Adi = model.kat_adi;
                 kategori.kat_aciklama = model.kat_aciklama;
+                kategori.Kaydeden = 1;
                 db.Kategoriler.Add(kategori);
                 db.SaveChanges();
                 return View();

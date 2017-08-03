@@ -23,8 +23,8 @@ namespace MVCBlog.Models.ORM.Entity
         #endregion
 
         #region degiştiren
-        private int _DegistirenUser = -1; // null olmaması için oto -1 kayıt ekledik.
-        public int Degistiren
+        private int? _DegistirenUser = -1; // null olmaması için oto -1 kayıt ekledik.
+        public int? Degistiren
         {
             get { return _DegistirenUser; }
             set { _DegistirenUser = value; }
@@ -32,8 +32,8 @@ namespace MVCBlog.Models.ORM.Entity
         #endregion
 
         #region degiştirme tarihi
-        private DateTime _UpdateDate = new DateTime(1900, 01, 01); // null olmaması için oto eski kayıt ekledik.
-        public DateTime Degistirme_Tarihi
+        private DateTime? _UpdateDate = new DateTime(1900, 01, 01); // null olmaması için oto eski kayıt ekledik.
+        public DateTime? Degistirme_Tarihi
         {
             get { return _UpdateDate; }
             set { _UpdateDate = value; }

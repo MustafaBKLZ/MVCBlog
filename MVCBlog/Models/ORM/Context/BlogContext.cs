@@ -13,7 +13,7 @@ namespace MVCBlog.Models.ORM.Context
     {
         public BlogContext()
         {
-            Database.Connection.ConnectionString = @"Server=.;Database=MVCBlog;Trusted_Connection=True;";
+            Database.Connection.ConnectionString = @"server=bim\sql2014;Database=MVCBlog;User ID=TestUser; Password=Tu123456*;pooling=false;";
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -26,7 +26,7 @@ namespace MVCBlog.Models.ORM.Context
         public DbSet<Kategori> Kategoriler { get; set; }
         public DbSet<BlogPost> BlogPosts { get; set; }
         public DbSet<SiteMenu> SiteMenus { get; set; }
-        
+
 
         //kullanılacak komutlar
         // 1 - enable-migrations - Class ların tablo olarak basılmasına izin ver  - 1 kere yazılıyor ilk başta
