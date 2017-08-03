@@ -26,8 +26,7 @@
                             <th class="numeric">ID</th>
                             <th>Adı</th>
                             <th>Açıklama</th>
-                            <th>Eklenme Tarihi</th>
-                            <th>Aktif</th>
+                            <th>Eklenme Tarihi</th>                            
                             <th>İşlemler</th>
                         </tr>
                     </thead>
@@ -44,12 +43,13 @@
                                 <td>@item.ID</td>
                                 <td>@item.kat_adi</td>
                                 <td>@item.kat_aciklama</td>
-                                <td>@item.KayitTarihi</td>
-                                <td>@item.Aktif</td>
+                                <td>@item.KayitTarihi</td>                                
                                 <td>
                                     <a class="btn btn-danger" style="cursor:pointer" title="Sil" onclick="Delete(@item.ID)"><span class="fa fa-times"></span> </a>
 
-                                    <a class="btn btn-success" style="cursor:pointer" title="Değiştir"><span class="fa fa-pencil-square-o"></span> </a>
+                                    <a class="btn btn-success" style="cursor:pointer" title="Değiştir" href="/Admin/Kategori/KategoriGuncelle/@item.ID"><span class="fa fa-pencil-square-o"></span> </a>
+
+                                    <a class="btn btn-info" style="cursor:pointer" title="Değiştir" href="/Admin/Kategori/KategoriEkle"><span class="fa fa-plus"></span> </a>
                                 </td>
                             </tr>
                         }

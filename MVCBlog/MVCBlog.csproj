@@ -180,6 +180,8 @@
     <Content Include="Areas\Admin\Content\font-awesome\fonts\FontAwesome.otf" />
     <Content Include="Areas\Admin\Views\Shared\Partial\FormIslemUyarilari.cshtml" />
     <Content Include="Areas\Admin\Views\Kategori\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Kategori\KategoriGuncelle.cshtml" />
+    <Content Include="Areas\Admin\Views\Kategori\Partial\CategoryForm.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\Chart.js" />

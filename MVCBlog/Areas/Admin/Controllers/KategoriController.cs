@@ -75,8 +75,39 @@ namespace MVCBlog.Areas.Admin.Controllers
 
 
 
+        public ActionResult KategoriGuncelle(int id)
+        {
+            //önce güncellenecek kaydı bulup ekrana verileri yazıyoruz
+            Kategori kategori = db.Kategoriler.FirstOrDefault(x => x.ID == id);
+            KategoriVM model = new KategoriVM();
+            model.kat_adi = kategori.kat_Adi;
+            model.kat_aciklama = kategori.kat_aciklama;
+
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult KategoriGuncelle(KategoriVM model)
+        {
+            //güncellenecek kategori alınır ve yeni verilerle güncellenir
+            if (ModelState.IsValid)
+            {
+                Kategori kategori = db.Kategoriler.FirstOrDefault(x => x.ID == model.ID);
+                kategori.kat_Adi = model.kat_adi;
+                kategori.kat_aciklama = model.kat_aciklama;
+                db.SaveChanges();
+                ViewBag.IslemDurum = 1; // işlem durumuna göre mekranda öesaj göstermek için kullanıyoruz. Herhangi bir değişkene bağlı değil.
+                //yani int IslemDurum=0; gibi bir tanımlaması yok.
+                return View();
+            }
+            else
+            {
+                ViewBag.IslemDurum = 0;
+                return View();
+            }
 
 
+        }
 
     }
 }
