@@ -13,7 +13,7 @@ namespace MVCBlog.Models.ORM.Context
     {
         public BlogContext()
         {
-            Database.Connection.ConnectionString = @"server=bim\sql2014;Database=MVCBlog;User ID=TestUser; Password=Tu123456*;pooling=false;";
+            Database.Connection.ConnectionString = @"server=bim\sql2014;Database=MVCBlog;User ID=TestUser; Password=Tu123456*-;pooling=false;";
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
