@@ -186,6 +186,7 @@
     <Content Include="Areas\Admin\Views\AdminUsers\AdminEkle.cshtml" />
     <Content Include="Areas\Admin\Views\AdminUsers\Partial\AdminForm.cshtml" />
     <Content Include="Areas\Admin\Views\AdminUsers\AdminGuncelle.cshtml" />
+    <Content Include="Areas\Admin\Views\SiteMenu\AddSiteMenu.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\Chart.js" />
@@ -216,11 +217,13 @@
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\KategoriController.cs" />
     <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SiteMenuController.cs" />
     <Compile Include="Areas\Admin\Models\Attributes\LoginControl.cs" />
     <Compile Include="Areas\Admin\Models\DTO\AdminUserVM.cs" />
     <Compile Include="Areas\Admin\Models\DTO\BaseVM.cs" />
     <Compile Include="Areas\Admin\Models\DTO\KategoriVM.cs" />
     <Compile Include="Areas\Admin\Models\DTO\LoginModel.cs" />
+    <Compile Include="Areas\Admin\Models\DTO\SiteMenuVM.cs" />
     <Compile Include="Areas\Admin\Models\Types\FormMessages.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

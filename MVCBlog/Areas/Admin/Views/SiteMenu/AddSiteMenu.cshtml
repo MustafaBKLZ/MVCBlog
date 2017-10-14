@@ -1,0 +1,81 @@
+﻿
+@{
+    ViewBag.Title = "AddSiteMenu";
+    Layout = "~/Areas/Admin/Views/Shared/AdminLayout.cshtml";
+}
+
+
+<div class="">
+    <!-- INLINE FORM ELELEMNTS -->
+    <!-- Yorum satırlarını silme -->
+    <div class="row mt">
+        <div class="col-lg-12">
+
+            <div class="form-panel">
+                <h4 class="mb"><i class="fa fa-angle-right"></i> Site Menü Ekle</h4>
+                <div class="container">
+                    <form action="~/Admin/SiteMenu/AddSiteMenu/" method="post">
+
+                        @*Saf HTML ile tasarım yapıyoruz önceki yazım şekli html helper di bu saf html*@
+
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label>Adı </label>
+                                    <input type="text" class="form-control" name="smn_adi" value="" />
+                                </div>
+                                <div class="col-md-10">
+                                    <label>URL </label>
+                                    <input type="text" class="form-control" name="URL" value="" />
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label>Adı </label>
+                                    <input type="text" class="form-control" name="URL" value="" />
+                                </div>
+                                <div class="col-md-10">
+                                    <label>URL </label>
+                                    <input type="text" class="form-control" name="URL" value="" />
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label>Adı </label>
+                                    <input type="text" class="form-control" name="Name" value="" />
+                                </div>
+                                <div class="col-md-10">
+                                    <label>Css Class </label>
+                                    <input type="text" class="form-control" name="CssClass" value="" />
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="row">
+                            <input type="button" class="btn btn-success" name="Kaydet" value="Kaydet" />
+                        </div>
+                    </form>
+                  
+
+
+                </div><!-- /form-panel -->
+            </div><!-- /col-lg-12 -->
+        </div><!-- /row -->
+    </div>
+</div>
+
+
+
+
