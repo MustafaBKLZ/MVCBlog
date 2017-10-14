@@ -26,6 +26,10 @@
     <link href="~/Areas/Admin/Content/css/table-responsive.css" rel="stylesheet" />
 
     <script src="~/Scripts/Chart.js"></script>
+
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/messages_tr.min.js"></script>
+
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -222,9 +226,9 @@
                         </a>
                     </li>   
                     <li class="sub-menu">
-                        <a class="" href="/Admin/SiteMenu/Index">
+                        <a class="" href="/Admin/SiteMenu/AddSiteMenu">
                             <i class="fa fa-bookmark"></i>
-                            <span>Kategoriler</span>
+                            <span>Site Menü</span>
                         </a>
                     </li>                 
                     <li class="sub-menu">
@@ -706,6 +710,7 @@
         </footer>
         <!--footer end-->
     </section>
+   
 
     <!-- js placed at the end of the document so the pages load faster -->
 
@@ -729,6 +734,7 @@
     <script src="~/Scripts/zabuto_calendar.js"></script>
 
     
+
     @*<script type="text/javascript">
             $(document).ready(function () {
                 var unique_id = $.gritter.add({
@@ -785,6 +791,14 @@
         }
     </script>
 
-
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/messages_tr.min.js"></script>
+    <script>
+    $("#frmSiteMenu").validate();
+    </script>
+   
 </body>
+
+
+
 </html>
