@@ -1,0 +1,72 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/AdminLayout.cshtml";
+}
+@model List<MVCBlog.Areas.Admin.Models.DTO.SiteMenuVM>
+
+<!-- INLINE FORM ELELEMNTS -->
+<!-- Yorum satırlarını silme -->
+<div class="row mt">
+    <div class="col-lg-12">
+        <div class="content-panel">
+            <h4><i class="fa fa-angle-right"></i>Site Menu Listesi</h4>
+            <section id="unseen">
+                <table class="table table-bordered table-striped table-condensed">
+                    <thead>
+                        <tr>
+                            <th class="numeric">ID</th>
+                            <th>Adı</th>
+                            <th>URL</th>
+                            <th>Class</th>
+                            <th>Eklenme Tarihi</th>
+                            <th>İşlemler</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr id="a_@item.ID">
+                                @*
+                                    // sayfa kaynağından bu tabloya baktığında her satırın bir ıd si olduğunu göreceksin
+                                    // her ID tablodan çekilen ID dir. ve html olarak a_ID olarak basılıyor
+                                    //a_1 , a_2 şeklinde
+                                    //a_@item.ID amacı budur.
+                                *@
+                                <td>@item.ID</td>
+                                <td>@item.smn_adi</td>
+                                <td>@item.smn_url</td>
+                                <td>@item.cssClass</td>
+                                <td>@item.KayitTarihi</td>
+
+                                <td>
+                                    <a class="btn btn-danger" style="cursor:pointer" title="Sil" onclick="Delete(@item.ID)"><span class="fa fa-times"></span> </a>
+
+                                    <a class="btn btn-success" style="cursor:pointer" title="Değiştir" href="/Admin/SiteMenu/UpdateSiteMenu/@item.ID"><span class="fa fa-pencil-square-o"></span> </a>
+
+                                    <a class="btn btn-info" style="cursor:pointer" title="Ekle" href="/Admin/SiteMenu/AddSiteMenu"><span class="fa fa-plus"></span> </a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </section>
+        </div>
+    </div>
+</div>
+
+<script>
+    //database ve html den silme metodu
+    function Delete(id) { // parametre olarak id alıyor
+        $.ajax(
+            {
+                url: "/Admin/SiteMenu/DeleteSiteMenu/" + id, // kategoriControllerdeki dilme metoduna erişiyor
+                data: id, // data olarak id bilgisi gönderiliyor
+                type: "POST", // işlem tipi
+                success: function (result) { // işlem başarılı ise olacakları yazıyoruz.
+                    $("#a_" + id).fadeOut(); // DB den sildik ancak HTML olarakda silmek için ilgili satırı kaldırıyoruz.
+                }
+            }
+        )
+    }
+</script>

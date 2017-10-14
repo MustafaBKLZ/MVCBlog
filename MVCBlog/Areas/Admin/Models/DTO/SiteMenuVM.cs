@@ -15,5 +15,7 @@ namespace MVCBlog.Areas.Admin.Models.DTO
         [Required(ErrorMessage = "Site Menü Css Boş Olamaz.")]
         public string cssClass { get; set; }
 
+        public DateTime KayitTarihi { get; set; }
+        public bool Aktif { get; set; }
     }
 }

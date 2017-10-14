@@ -1,0 +1,108 @@
+﻿
+@{
+    ViewBag.Title = "UpdateSiteMenu";
+    Layout = "~/Areas/Admin/Views/Shared/AdminLayout.cshtml";
+}
+
+
+@using MVCBlog.Areas.Admin.Models.Types;
+@model MVCBlog.Areas.Admin.Models.DTO.SiteMenuVM
+
+
+
+
+@*   yorum satırlarını silme   *@
+
+<style>
+    .error {
+        color: palevioletred;
+        font-weight: 700;
+    }
+</style>
+
+@*   jquery validator ÖNEMLİ NOT   *@
+@*   jquery validator kullanacaksan ve master page kullanıyorsan ve mp de java scriptler en altta ise jquery validasyon kodlarını master page nin en altına yazman gerekiyor. Yoksa validator çalışmıyor. style vereceksen bu sayfada verebilirsin  *@
+
+@*   Saf HTML ile tasarım yapıyoruz önceki yazım şekli html helper di bu saf html  *@
+
+<div class="">
+    <!-- INLINE FORM ELELEMNTS -->
+    <!-- Yorum satırlarını silme -->
+    <div class="row mt">
+        <div class="col-lg-12">
+
+            <div class="form-panel">
+                <h4 class="mb"><i class="fa fa-angle-right"></i> Site Menü Ekle</h4>
+                <div class="container">
+
+                    @*    <form action="~/Admin/SiteMenu/AddSiteMenu/" id="frmSiteMenu" method="post">*@
+                    @using (Html.BeginForm())
+                    {
+                        @*Saf HTML ile tasarım yapıyoruz önceki yazım şekli html helper di bu saf html*@
+
+                        @Html.Partial("/Areas/Admin/Views/Shared/Partial/FormIslemUyarilari.cshtml")
+
+
+
+
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-1">
+                                    <label>Adı </label>
+                                </div>
+                                <div class="col-md-10">
+                                    @*<input type="text" class="form-control" name="smn_adi" required />*@
+
+                                    @Html.TextBoxFor(x => x.smn_adi, new { @class = "form-control", @placeholder = "Adı"  })
+                                    @Html.ValidationMessageFor(x => x.smn_adi)
+
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-1">
+                                    <label>URL </label>
+                                </div>
+                                <div class="col-md-10">
+                                    @*<input type="text" class="form-control" name="smn_url" required />*@
+
+                                    @Html.TextBoxFor(x => x.smn_url, new { @class = "form-control", @placeholder = "Adı" })
+                                    @Html.ValidationMessageFor(x => x.smn_url)
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-1">
+                                    <label>CSS Class </label>
+                                </div>
+                                <div class="col-md-10">
+                                    @*<input type="text" class="form-control" name="CssClass" required />*@
+                                    @Html.TextBoxFor(x => x.cssClass, new { @class = "form-control", @placeholder = "Adı" })
+                                    @Html.ValidationMessageFor(x => x.cssClass)
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            @*<input type="submit" class="btn btn-success" value="Kaydet" />*@
+                            <button type="submit" class="btn btn-success">Kaydet</button>
+                        </div>
+
+
+
+                        @*</form>*@
+                    }
+                </div><!-- /form-panel -->
+            </div><!-- /col-lg-12 -->
+        </div><!-- /row -->
+    </div>
+</div>

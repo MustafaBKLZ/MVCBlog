@@ -34,6 +34,7 @@ namespace MVCBlog.Areas.Admin.Controllers
         {
             return View();
         }
+
         [HttpPost]
         public ActionResult KategoriEkle(KategoriVM model)
         {
