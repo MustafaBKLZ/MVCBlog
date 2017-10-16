@@ -1,0 +1,70 @@
+﻿
+
+
+@using MVCBlog.Areas.Admin.Models.Types;
+@model MVCBlog.Areas.Admin.Models.DTO.BlogPostVM
+
+<script src="~/ckeditor/ckeditor.js"></script>
+@*<script src="~/ckeditor/samples/js/sample.js"></script>*@
+
+@*<link href="~/ckeditor/samples/css/samples.css" rel="stylesheet" />*@
+@*<link href="~/ckeditor/samples/toolbarconfigurator/lib/codemirror/neo.css" rel="stylesheet" />*@
+
+
+@using (Html.BeginForm())
+{
+    <div class="form-group">
+        <div class="row">
+            <div class="col-md-1">
+                <label>Başlık</label>
+                @*KategoriVM de verdiğimiz display attribute si burada görünüyor.*@
+            </div>
+            <div class="col-md-4 ">
+                @Html.TextBoxFor(x => x.blg_Baslik, new { @class = "form-control", @placeholder = "Başlık" })
+                @Html.ValidationMessageFor(x => x.blg_Baslik)
+            </div>
+        </div>
+    </div>
+
+    
+
+
+    <div class="form-group">
+        <div class="row">
+            <div class="col-md-1">
+              <label>Kategori</label>
+                @*KategoriVM de verdiğimiz display attribute si burada görünüyor.*@
+            </div>
+            <div class="col-md-3">
+                @Html.DropDownList("kat_ID", Model.drpKategoriler, new { @class = "form-control" } )
+                @Html.ValidationMessageFor(x => x.blg_Icerik)
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="form-group">
+        <div class="row">
+            <div class="col-md-1">
+            <label>İçerik</label>
+                @*KategoriVM de verdiğimiz display attribute si burada görünüyor.*@
+            </div>
+            <div class="col-md-10">
+                @Html.TextAreaFor(x => x.blg_Icerik, new { @class = "ckeditor", @placeholder = "İçerik", @type = "TextArea" })
+                @Html.ValidationMessageFor(x => x.blg_Icerik)
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="row">
+        <button type="submit" class="btn btn-theme">Kaydet</button>
+    </div>
+}
+
+
+
+
