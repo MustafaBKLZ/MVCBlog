@@ -4,7 +4,7 @@
     Layout = "~/Areas/Admin/Views/Shared/AdminLayout.cshtml";
 }
 @model List<MVCBlog.Areas.Admin.Models.DTO.AdminUserVM>
-
+<script src="~/Scripts/Custom/AdminKayitSil.js"></script>
 <!-- INLINE FORM ELELEMNTS -->
 <!-- Yorum satırlarını silme -->
 <div class="row mt">
@@ -37,7 +37,7 @@
                                 <td>@item.adm_Email</td>                                
                                 <td>@item.KayitTarihi</td>
                                 <td>
-                                    <a class="btn btn-danger" style="cursor:pointer" title="Sil" onclick="Delete(@item.ID)"><span class="fa fa-times"></span> </a>
+                                    <a class="btn btn-danger" style="cursor:pointer" title="Sil" onclick="Delete('/Admin/AdminUsers/AdminSil/', @item.ID)"><span class="fa fa-times"></span> </a>
 
                                     <a class="btn btn-success" style="cursor:pointer" title="Değiştir" href="/Admin/AdminUsers/AdminGuncelle/@item.ID"><span class="fa fa-pencil-square-o"></span> </a>
 
@@ -51,18 +51,3 @@
         </div>
     </div>
 </div>
-<script>
-    //database ve html den silme metodu
-    function Delete(id) { // parametre olarak id alıyor
-        $.ajax(
-            {
-                url: "/Admin/AdminUsers/AdminSil/" + id, // kategoriControllerdeki dilme metoduna erişiyor
-                data: id, // data olarak id bilgisi gönderiliyor
-                type: "POST", // işlem tipi
-                success: function (result) { // işlem başarılı ise olacakları yazıyoruz.
-                    $("#a_" + id).fadeOut(); // DB den sildik ancak HTML olarakda silmek için ilgili satırı kaldırıyoruz.
-                }
-            }
-        )
-    }
-</script>

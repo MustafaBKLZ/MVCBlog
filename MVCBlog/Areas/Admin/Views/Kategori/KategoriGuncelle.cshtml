@@ -15,12 +15,12 @@
             <div class="form-panel">
                 <h4 class="mb"><i class="fa fa-angle-right"></i> Kategori Güncelleme</h4>
                 <div class="container">
-
+                    @*// tüm uyarı mesajlarını buraya atacağız
+        // tek satır ile bu şekilde her yerde kullanabileceğiz.*@
+                    @Html.Partial("/Areas/Admin/Views/Shared/Partial/FormIslemUyarilari.cshtml")
                     @Html.Partial("Partial/CategoryForm")
 
-                    @*// tüm uyarı mesajlarını buraya atacağız
-                        // tek satır ile bu şekilde her yerde kullanabileceğiz.*@
-                    @Html.Partial("/Areas/Admin/Views/Shared/Partial/FormIslemUyarilari.cshtml")
+
 
 
 

@@ -4,5 +4,68 @@
     Layout = "~/Areas/Admin/Views/Shared/AdminLayout.cshtml";
 }
 
-<h2>Index</h2>
+@model List<MVCBlog.Areas.Admin.Models.DTO.BlogPostVM>
+
+<script src="~/Scripts/Custom/AdminKayitSil.js"></script>
+<!-- silme işlemi json ile yapıyorduk. Yine aynı fakat artık js dosyasının içinde. Yani dinamik hale getirdik. -->
+
+<!-- INLINE FORM ELELEMNTS -->
+<!-- Yorum satırlarını silme -->
+<div class="row mt">
+    <div class="col-lg-12">
+        <div class="content-panel">
+            <h4><i class="fa fa-angle-right"></i>Kategori Listesi</h4>
+            <section id="unseen">
+                <table class="table table-bordered table-striped table-condensed">
+                    <thead>
+                        <tr>
+                            <th class="numeric">ID</th>
+                            <th>Başlık</th>
+                            <th>Kategori</th>
+                            <th>Etiketler</th>
+                            <th>Yorum</th>
+                            <th>Görülme</th>
+                            <th>İşlemler</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr id="a_@item.ID">
+                                @*
+                                    // sayfa kaynağından bu tabloya baktığında her satırın bir ıd si olduğunu göreceksin
+                                    // her ID tablodan çekilen ID dir. ve html olarak a_ID olarak basılıyor
+                                    //a_1 , a_2 şeklinde
+                                    //a_@item.ID amacı budur.
+                                *@
+
+                                <td style="width:40px;">@item.ID</td>
+                                <td>@item.blg_Baslik</td>
+                                <td style="width:140px;">@item.kat_Adi</td>
+                                <td style="width:200px;">etiket, etiket, etiket</td>
+                                <td style="width:80px;">55</td>
+                                <td style="width:80px;">556</td>
+                                <td style="width:133px;">
+                                    <a class="btn btn-danger" style="cursor:pointer" title="Sil" onclick="Delete('/Admin/BlogPost/DeleteBlogPost/', @item.ID)">
+                                        <span class="fa fa-times"></span>
+                                    </a>
+
+                                    <a class="btn btn-success" style="cursor:pointer" title="Değiştir" href="/Admin/BlogPost/UpdateBlogPost/@item.ID">
+                                        <span class="fa fa-pencil-square-o"></span>
+                                    </a>
+
+                                    <a class="btn btn-info" style="cursor:pointer" title="Ekle" href="/Admin/BlogPost/AddBlogPost">
+                                        <span class="fa fa-plus">
+                                        </span>
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </section>
+        </div>
+    </div>
+</div>
+
 

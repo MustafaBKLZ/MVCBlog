@@ -4,7 +4,7 @@
     Layout = "~/Areas/Admin/Views/Shared/AdminLayout.cshtml";
 }
 @model List<MVCBlog.Areas.Admin.Models.DTO.KategoriVM>
-
+<script src="~/Scripts/Custom/AdminKayitSil.js"></script>
 <!-- INLINE FORM ELELEMNTS -->
 <!-- Yorum satırlarını silme -->
 <div class="row mt">
@@ -37,9 +37,14 @@
                                 <td>@item.kat_aciklama</td>
                                 <td>@item.KayitTarihi</td>
                                 <td>
-                                    <a class="btn btn-danger" style="cursor:pointer" title="Sil" onclick="Delete(@item.ID)"><span class="fa fa-times"></span> </a>
-                                    <a class="btn btn-success" style="cursor:pointer" title="Değiştir" href="/Admin/Kategori/KategoriGuncelle/@item.ID"><span class="fa fa-pencil-square-o"></span> </a>
-                                    <a class="btn btn-info" style="cursor:pointer" title="Değiştir" href="/Admin/Kategori/KategoriEkle"><span class="fa fa-plus"></span> </a>
+                                    <a class="btn btn-danger" style="cursor:pointer" title="Sil" onclick="Delete('/Admin/Kategori/KategoriSil/', @item.ID)">
+                                    <span class="fa fa-times"></span> </a>
+
+                                    <a class="btn btn-success" style="cursor:pointer" title="Değiştir" href="/Admin/Kategori/KategoriGuncelle/@item.ID">
+                                    <span class="fa fa-pencil-square-o"></span> </a>
+
+                                    <a class="btn btn-info" style="cursor:pointer" title="Değiştir" href="/Admin/Kategori/KategoriEkle">
+                                    <span class="fa fa-plus"></span> </a>
                                 </td>
                             </tr>
                         }
@@ -49,18 +54,3 @@
         </div>
     </div>
 </div>
-<script>
-    //database ve html den silme metodu
-    function Delete(id) { // parametre olarak id alıyor
-        $.ajax(
-            {
-                url: "/Admin/Kategori/KategoriSil/" + id, // kategoriControllerdeki dilme metoduna erişiyor
-                data: id, // data olarak id bilgisi gönderiliyor
-                type: "POST", // işlem tipi
-                success: function (result) { // işlem başarılı ise olacakları yazıyoruz.
-                    $("#a_" + id).fadeOut(); // DB den sildik ancak HTML olarakda silmek için ilgili satırı kaldırıyoruz.
-                }
-            }
-        )
-    }
-</script>
