@@ -27,7 +27,6 @@ namespace MVCBlog.Areas.Admin.Controllers
 
             return View(model);
         }
-
         public ActionResult AddBlogPost()
         {
             BlogPostVM model = new BlogPostVM();
@@ -43,7 +42,6 @@ namespace MVCBlog.Areas.Admin.Controllers
         {
             BlogPostVM ddlmodel = new BlogPostVM();
             ddlmodel.drpKategoriler = DropDownList_Doldur.DDL_KategorileriGetir();
-
 
             if (ModelState.IsValid)
             {
@@ -72,24 +70,18 @@ namespace MVCBlog.Areas.Admin.Controllers
             blogpost.Degistirme_Tarihi = DateTime.Now;
             blogpost.Degistiren = 1;
             db.SaveChanges();
-
             return Json("");
         }
-
 
         public ActionResult UpdateBlogPost(int id)
         {
             //önce güncellenecek kaydı bulup ekrana verileri yazıyoruz
             BlogPost blogpost = db.BlogPosts.FirstOrDefault(x => x.ID == id);
             BlogPostVM model = new BlogPostVM();
-
-
             model.drpKategoriler = DropDownList_Doldur.DDL_KategorileriGetir();
-
             model.blg_Baslik = blogpost.blg_Baslik;
             model.blg_Icerik = blogpost.blg_Icerik;
             model.kat_ID = blogpost.kat_ID;
-
             ViewBag.Guncelle = 1;
             return View(model);
         }
@@ -99,18 +91,13 @@ namespace MVCBlog.Areas.Admin.Controllers
         {
             BlogPostVM ddl_model = new BlogPostVM();
             ddl_model.drpKategoriler = DropDownList_Doldur.DDL_KategorileriGetir();
-
             //güncellenecek kategori alınır ve yeni verilerle güncellenir
             if (ModelState.IsValid)
             {
                 BlogPost blogpost = db.BlogPosts.FirstOrDefault(x => x.ID == model.ID);
-
-
-
                 blogpost.blg_Baslik = model.blg_Baslik;
                 blogpost.blg_Icerik = model.blg_Icerik;
                 blogpost.kat_ID = model.kat_ID;
-
                 db.SaveChanges();
                 ViewBag.IslemDurum = 1; // işlem durumuna göre mekranda öesaj göstermek için kullanıyoruz. Herhangi bir değişkene bağlı değil.
                 //yani int IslemDurum=0; gibi bir tanımlaması yok.
@@ -122,9 +109,8 @@ namespace MVCBlog.Areas.Admin.Controllers
                 ViewBag.IslemDurum = 0;
                 return View(ddl_model);
             }
-
-
         }
+
 
     }
 }
