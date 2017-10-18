@@ -13,11 +13,16 @@ namespace MVCBlog.Areas.Admin.Controllers
     {
         // yorum satırlarını silme
         // GET: Admin/Base
+
         // her controller de db tanıtımı yapmamak için ana bir controller açtık.
         // diğer tüm kontrollerlarda bunu kullanacağız
+
         public BlogContext db;
         public BaseController()
         {
+            //ViewBag.AktifKullaniciKodu = 0;
+            //
+
             db = new BlogContext();
         }
         protected override void Dispose(bool disposing)

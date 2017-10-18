@@ -6,12 +6,13 @@ using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Linq;
 using System.Web;
 
+
 namespace MVCBlog.Models.ORM.Context
 {
     //yorum satıralrını silme
     public class BlogContext : DbContext
     {
-        public BlogContext()
+        public  BlogContext()
         {
             Database.Connection.ConnectionString = @"server=bim\sql2014;Database=MVCBlog;User ID=TestUser; Password=Tu123456*-;pooling=false;";
         }
@@ -26,6 +27,8 @@ namespace MVCBlog.Models.ORM.Context
         public DbSet<Kategori> Kategoriler { get; set; }
         public DbSet<BlogPost> BlogPosts { get; set; }
         public DbSet<SiteMenu> SiteMenus { get; set; }
+        public DbSet<SiteBilgileri> SiteBilgileris { get; set; }
+        
 
 
         //kullanılacak komutlar

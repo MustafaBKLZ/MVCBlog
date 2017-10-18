@@ -18,14 +18,14 @@ namespace MVCBlog.Areas.Admin.Controllers
             //kullanıcı email ve ad soyadı çekme
             //login olduktan sonra alacak.
 
-            //BlogContext db = new BlogContext();
-            //string email = HttpContext.User.Identity.Name;
-            //AdminUser adminuser = db.AdminUsers.FirstOrDefault(x => x.adm_Email == email);
-            //string name = adminuser.adm_AdiSoyadi;
-
-
-
-
+            BlogContext db = new BlogContext();
+            string email = HttpContext.User.Identity.Name;
+            AdminUser adminuser = db.AdminUsers.FirstOrDefault(x => x.adm_Email == email);
+            string name = adminuser.adm_AdiSoyadi;
+            int kullanicikodu = adminuser.ID;
+            ViewBag.AktifKullaniciMail = email;
+            ViewBag.AktifKullaniciAdi = name;
+            ViewBag.AktifKullaniciKodu = kullanicikodu;
             return View();
         }
 

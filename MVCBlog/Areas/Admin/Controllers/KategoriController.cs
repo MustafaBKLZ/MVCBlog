@@ -13,6 +13,7 @@ namespace MVCBlog.Areas.Admin.Controllers
         // GET: Admin/Kategori
         //yorum satırlarını silme
 
+     
 
         public ActionResult Index()
         {
@@ -46,7 +47,7 @@ namespace MVCBlog.Areas.Admin.Controllers
                 kategori.Kaydeden = 1;
                 db.Kategoriler.Add(kategori);
                 db.SaveChanges();
-                ViewBag.IslemDurum = 1; 
+                ViewBag.IslemDurum = 1;
                 // işlem durumuna göre mekranda öesaj göstermek için kullanıyoruz. Herhangi bir değişkene bağlı değil.
                 //yani int IslemDurum=0; gibi bir tanımlaması yok.
                 return View();

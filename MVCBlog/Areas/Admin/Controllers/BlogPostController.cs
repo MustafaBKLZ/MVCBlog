@@ -23,12 +23,6 @@ namespace MVCBlog.Areas.Admin.Controllers
                    kat_ID = x.kat_ID,
 
                    kat_Adi = x.Kategori.kat_Adi
-
-                   //kat_Adi = 
-
-
-                   //= x.Aktif,
-                   //KayitTarihi = x.KayitTarihi
                }).ToList();
 
             return View(model);
