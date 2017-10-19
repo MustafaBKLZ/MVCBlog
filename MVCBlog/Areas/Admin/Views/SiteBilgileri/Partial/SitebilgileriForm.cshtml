@@ -1,0 +1,73 @@
+﻿
+
+@using MVCBlog.Areas.Admin.Models.Types;
+@model MVCBlog.Areas.Admin.Models.DTO.SiteBilgileriVM
+
+
+@using (Html.BeginForm())
+{
+    <div class="form-group">
+        <div class="row">
+            <div class="col-md-2">
+            <label>Site Başlık</label>
+                @*KategoriVM de verdiğimiz display attribute si burada görünüyor.*@
+            </div>
+            <div class="col-md-4">
+                @Html.TextBoxFor(x => x.SiteBaslik, new { @class = "form-control", @placeholder = "Başlık" })
+                @Html.ValidationMessageFor(x => x.SiteBaslik)
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="form-group">
+        <div class="row">
+            <div class="col-md-2">
+                <label>Site Açıklama</label>
+                @*KategoriVM de verdiğimiz display attribute si burada görünüyor.*@
+            </div>
+            <div class="col-md-10">
+                @Html.TextBoxFor(x => x.SiteAciklama, new { @class = "form-control", @placeholder = "Açıklama", @type = "TextArea" })
+                @Html.ValidationMessageFor(x => x.SiteAciklama)
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="row">
+            <div class="col-md-2">
+                <label>Site Kelimeler</label>
+                @*KategoriVM de verdiğimiz display attribute si burada görünüyor.*@
+            </div>
+            <div class="col-md-10">
+                @Html.TextBoxFor(x => x.SiteKeywords, new { @class = "form-control", @placeholder = "Keywords", @type = "TextArea" })
+                @Html.ValidationMessageFor(x => x.SiteKeywords)
+            </div>
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <div class="row">
+            <div class="col-md-2">
+                <label>Site Yenileme </label>
+                @*KategoriVM de verdiğimiz display attribute si burada görünüyor.*@
+            </div>
+            <div class="col-md-10">
+                @Html.TextBoxFor(x => x.SiteYenilemeSuresi, new { @class = "form-control", @placeholder = "60", @type = "TextArea" })
+                @Html.ValidationMessageFor(x => x.SiteYenilemeSuresi)
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <button type="submit" class="btn btn-theme">Kaydet</button>
+    </div>
+}
+
+
+
+
+

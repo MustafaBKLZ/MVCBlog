@@ -12,13 +12,18 @@ namespace MVCBlog.Areas.Admin.Models.DTO
     {
         [Required(ErrorMessage = "Başlık Boş Olamaz.")]
         public string blg_Baslik { get; set; }
+        
         [Required(ErrorMessage = "İçerik Boş Olamaz.")]
         public string blg_Icerik { get; set; }
+
         [Required(ErrorMessage = "Kategori Seçiniz.")]
         public int kat_ID { get; set; }
-        public IEnumerable<SelectListItem> drpKategoriler { get; set; }
 
+        public HttpPostedFileBase PostImage { get; set; }
+
+        public IEnumerable<SelectListItem> drpKategoriler { get; set; }
         
         public string kat_Adi { get; set; }
+
     }
 }
